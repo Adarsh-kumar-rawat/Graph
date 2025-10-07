@@ -136,3 +136,19 @@ while q.size()>0:
             visited[x]=True
             ans.append(x)
 print(ans)
+
+# DFS THROUGH RECURSSION (WITHOUT STACK)
+
+visited = [False]*v
+ans = []
+
+def DFS(i,adjList, visited):
+    visited[i]= True
+    ans.append(i)
+
+    for x in adjList[i]:
+        if not visited[x]:
+            DFS(x,adjList,visited)
+
+DFS(0,adjList,visited)
+print(ans)
