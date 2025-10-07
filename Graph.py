@@ -119,3 +119,20 @@ class Stack:
         """String representation of the stack."""
         return "Stack(top -> bottom): " + str(self.items[::-1])
     
+#DFS
+q = Stack()
+visited = [False]*v
+ans = []
+
+q.push(0)
+visited[0]=True
+ans.append(0)
+
+while q.size()>0:
+    front = q.pop()
+    for x in adjList[front]:
+        if not visited[x]:
+            q.push(x)
+            visited[x]=True
+            ans.append(x)
+print(ans)
