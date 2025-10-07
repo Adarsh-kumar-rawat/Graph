@@ -34,6 +34,9 @@ for edge in sett:
 for i in adjMatrix:
     print(i)
 
+
+# TRAVERSAL MEDIUM 
+
 class Queue:
     def __init__(self):
         self.items = []
@@ -66,3 +69,21 @@ class Queue:
         """String representation of the queue."""
         return "Queue: " + str(self.items)
     
+#BFS
+q = Queue()
+visited = [False]*v
+ans = []
+
+q.push(0)
+visited[0]=True
+ans.append(0)
+
+while q.size()>0:
+    front = q.pop()
+    for x in adjList[front]:
+        if not visited[x]:
+            q.push(x)
+            visited[x]=True
+            ans.append(x)
+print(ans)
+
