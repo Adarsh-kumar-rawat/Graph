@@ -11,9 +11,25 @@ for i in range(v):
 for edge in sett:
     x = edge[0]
     y = edge[1]
-
     adjList[x].append(y)
     adjList[y].append(x)
 
 for i in range(v):
     print(i ,"->",adjList[i])
+
+
+# ADJ MATRIX
+adjMatrix = []
+
+for i in range(v):
+    adjMatrix.append([0]*v)
+
+for edge in sett:
+    x = edge[0]
+    y = edge[1]
+    adjMatrix[x][y] =1 
+    adjMatrix[y][x] =1
+    print(x,y) 
+
+for i in adjMatrix:
+    print(i)
