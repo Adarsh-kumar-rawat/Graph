@@ -152,3 +152,27 @@ def DFS(i,adjList, visited):
 
 DFS(0,adjList,visited)
 print(ans)
+
+# CHECK CYCLE IN UNDIRECTED GRAPH
+
+visited = [False]*v
+def dfs(i,parent,adjList,visited):
+    visited[i]= True
+    for x in adjList[i]:
+
+        if x == parent:
+            continue
+        if visited[x]:
+            return True
+        if dfs(x,i,adjList,visited):
+            return True
+    return False
+
+has_cycle = False
+for i in range(v):
+    if not visited[i]:
+        if dfs(i, -1, adjList, visited):
+            has_cycle = True
+            break
+
+print("Cycle detected:" if has_cycle else "No cycle found")
